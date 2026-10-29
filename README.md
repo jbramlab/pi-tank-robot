@@ -17,6 +17,13 @@ A tracked robot built from the XiaoR Geek TH Tank kit, running on a Raspberry Pi
 | `pc` | Code that runs on the PC (vision, face following, control client, planning). |
 | `docs` | Wiring, setup notes and the implementation plan. |
 
+## Running it
+
+1. On the Pi: `pip3 install -r pi/requirements.txt`, then `TANK_TOKEN=<long random string> python3 pi/receiver.py`. The `Motors` class is a stub that prints; fill it in with the kit's motor, arm and sensor calls.
+2. On the PC: install Ollama and pull a tool-calling model, then `pip install -r pc/requirements.txt` and `python pc/bridge.py`. It starts in dry-run mode; set `DRY_RUN=0` only after the testing checklist in the docs passes.
+
+The full plan, safety limits and testing checklist are in `docs/local-ai-control.md`.
+
 ## Status
 
-Kit assembled and running on the Pi. Code and notes to be added from my machines.
+Kit assembled and running on the Pi. Receiver and bridge written, not yet tested on the hardware; the kit's own control interface still needs confirming.
